@@ -19,7 +19,7 @@ function submit(delay) {
     }, delay);
   })
     .then(data =>
-      iziToast.error({
+      iziToast.success({
         message: data,
         position: 'topCenter',
       })
@@ -32,12 +32,9 @@ function submit(delay) {
     );
 }
 
-form.addEventListener('submit', event => {
-  event.preventDefault();
-});
-
 button.addEventListener('click', event => {
-  submit(input.value);
+    event.preventDefault();
+  submit(Number(input.value));
 });
 
 // console.log("step 1");
