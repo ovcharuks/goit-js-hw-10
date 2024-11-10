@@ -7,16 +7,23 @@ const button = document.querySelector('button[type=submit]');
 const radioResolve = document.querySelector('input[value=fulfilled]');
 const radioReject = document.querySelector('input[value=rejected]');
 
+form.addEventListener("submit", (event)=> {
+  event.preventDefault();
+  submit(Number(input.value));
+})
+
 function submit(delay) {
   new Promise((resolve, reject) => {
     setTimeout(() => {
       if (radioResolve.checked) {
         resolve(`✅ Fulfilled promise in ${delay}ms`);
       }
-      if (radioReject.checked) {
+      // if (radioReject.checked) 
+      else{
         reject(`❌ Rejected promise in ${delay}ms`);
       }
     }, delay);
+    console.log(typeof(delay));
   })
     .then(data =>
       iziToast.success({
@@ -30,12 +37,12 @@ function submit(delay) {
         position: 'topCenter',
       })
     );
+    input.value = "";
 }
 
-button.addEventListener('click', event => {
-    event.preventDefault();
-  submit(Number(input.value));
-});
+// button.addEventListener('click', event => {
+//   submit(Number(input.value));
+//   });
 
 // console.log("step 1");
 
