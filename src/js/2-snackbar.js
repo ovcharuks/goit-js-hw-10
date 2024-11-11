@@ -16,24 +16,26 @@ function submit(delay) {
   new Promise((resolve, reject) => {
     setTimeout(() => {
       if (radioResolve.checked) {
-        resolve(`✅ Fulfilled promise in ${delay}ms`);
+        resolve(delay);
       }
       // if (radioReject.checked) 
       else{
-        reject(`❌ Rejected promise in ${delay}ms`);
+        reject(delay);
       }
     }, delay);
     console.log(typeof(delay));
   })
-    .then(data =>
+    .then(delay =>
       iziToast.success({
-        message: data,
+        message: `✅ Fulfilled promise in ${delay}ms
+        `,
         position: 'topCenter',
       })
     )
-    .catch(error =>
+    .catch(delay =>
       iziToast.error({
-        message: error,
+        message: `❌ Rejected promise in ${delay}ms`
+        ,
         position: 'topCenter',
       })
     );
