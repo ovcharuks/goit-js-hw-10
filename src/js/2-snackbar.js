@@ -2,7 +2,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form');
-const input = document.querySelector('input[type=number');
+const input = document.querySelector('input[type="number"]');
 const button = document.querySelector('button[type=submit]');
 const radioResolve = document.querySelector('input[value=fulfilled]');
 const radioReject = document.querySelector('input[value=rejected]');
